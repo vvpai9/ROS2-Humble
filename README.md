@@ -146,10 +146,10 @@ https://ubuntu.com/download/desktop
 
   i. To install ardupilot_gazebo plugin
     Install additional dependencies
-    ```
-    sudo apt update
-    sudo apt install libgz-sim7-dev rapidjson-dev
-    ```
+```
+sudo apt update
+sudo apt install libgz-sim7-dev rapidjson-dev
+```
 
   ii. Create a workspace folder and clone the repository:
   ```
@@ -177,32 +177,33 @@ https://ubuntu.com/download/desktop
   ```
 
   v. In a new terminal install ardupilot (https://ardupilot.org/dev/docs/building-setup-linux.html#building-setup-linux)
-    Open terminal in Home location
+Open terminal in Home location
+    
     ```
     git clone https://github.com/ArduPilot/ardupilot -b master
     cd ardupilot
     ```
     
   Install some required packages:
-    ```
-    Tools/environment_install/install-prereqs-ubuntu.sh -y
-    ```
+```
+Tools/environment_install/install-prereqs-ubuntu.sh -y
+```
   
   Reload the path (log-out and log-in to make permanent):
-    ```
-    . ~/.profile
-    ```
+```
+. ~/.profile
+```
     
   waf calls (do not use sudo):
-    ```
-    ./waf configure --board CubeBlack
-    ./waf copter
-    ```
+ ```
+./waf configure --board CubeBlack
+./waf copter
+```
   
   clean:
-    ```
-    ./waf clean
-    ```
+```
+./waf clean
+```
 
 # Running gazebo SITL
 1. Terminal - 1 : To run gazebo world:
