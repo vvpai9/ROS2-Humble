@@ -1,0 +1,342 @@
+<sdf version='1.10'>
+  <world name='iris_runway'>
+    <physics name='1ms' type='ignore'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <plugin name='gz::sim::systems::Physics' filename='gz-sim-physics-system'/>
+    <plugin name='gz::sim::systems::Sensors' filename='gz-sim-sensors-system'>
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin name='gz::sim::systems::UserCommands' filename='gz-sim-user-commands-system'/>
+    <plugin name='gz::sim::systems::SceneBroadcaster' filename='gz-sim-scene-broadcaster-system'/>
+    <plugin name='gz::sim::systems::Imu' filename='gz-sim-imu-system'/>
+    <plugin name='gz::sim::systems::NavSat' filename='gz-sim-navsat-system'/>
+    <scene>
+      <ambient>1 1 1 1</ambient>
+      <background>0.8 0.8 0.8 1</background>
+      <sky/>
+      <shadows>true</shadows>
+    </scene>
+    <spherical_coordinates>
+      <latitude_deg>-35.363261999999999</latitude_deg>
+      <longitude_deg>149.16523699999999</longitude_deg>
+      <elevation>584</elevation>
+      <heading_deg>0</heading_deg>
+      <surface_model>EARTH_WGS84</surface_model>
+    </spherical_coordinates>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>5.5645e-06 2.28758e-05 -4.23884e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+
+    <model name="helipad">
+      <link name="background_link">
+        <!-- White square background -->
+        <visual name="background_visual_H1_square">
+          <geometry>
+            <box>
+              <size>8 8 0.01</size> <!-- Slightly larger than the circle -->
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient> <!-- White color -->
+            <diffuse>1 1 1 1</diffuse> <!-- White color -->
+            <specular>0 0 0 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+          <pose>93 0 0 0 0 0</pose>
+        </visual>
+
+        <!-- Red circle -->
+        <visual name="background_visual_H1">
+          <geometry>
+            <cylinder>
+              <radius>3.7</radius>
+              <length>0.1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+            <specular>0 0 0 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+          <pose>93 0 0 0 0 0</pose>
+        </visual>
+      </link>
+
+      <link name="h_letter">
+        <!-- White square background for the red circle -->
+        <visual name="h_letter_visual_11_square">
+          <geometry>
+            <box>
+              <size>6 6 0.01</size> <!-- Slightly larger than the circle -->
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient> <!-- White color -->
+            <diffuse>1 1 1 1</diffuse> <!-- White color -->
+            <specular>0 0 0 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+          <pose>93 0 0 0 0 0</pose>
+        </visual>
+
+        <!-- Red circle -->
+        <visual name="h_letter_visual_11">
+          <geometry>
+            <cylinder>
+              <radius>3</radius>
+              <length>0.12</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+            <specular>0 0 0 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+          <pose>93 0 0 0 0 0</pose>
+        </visual>
+
+        <!-- Inner Red extra -->
+        <visual name="h_letter_visual_12">
+          <geometry>
+            <cylinder>
+              <radius>2</radius>
+              <length>0.15</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+            <specular>0 0 0 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+          <pose>93 0 0 0 0 0</pose>
+        </visual>
+
+        <!-- Inner red extra -->
+        <visual name="h_letter_visual_13">
+          <geometry>
+            <cylinder>
+              <radius>1</radius>
+              <length>0.15</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+            <specular>0 0 0 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+          <pose>93 0 0.05 0 0 0</pose>
+        </visual>
+
+        <!-- Additional white square background and red circle -->
+        <visual name="h_letter_visual_78_square">
+          <geometry>
+            <box>
+              <size>8 8 0.01</size> <!-- Slightly larger than the circle -->
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient> <!-- White color -->
+            <diffuse>1 1 1 1</diffuse> <!-- White color -->
+            <specular>0 0 0 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+          <pose>113 25 0 0 0 0</pose>
+        </visual>
+
+        <visual name="h_letter_visual_78">
+          <geometry>
+            <cylinder>
+              <radius>3</radius>
+              <length>0.12</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+            <specular>0 0 0 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+          <pose>113 25 0 0 0 0</pose>
+        </visual>
+
+        <!-- Repeat the pattern for each of the red circles with white square backgrounds -->
+
+        <visual name="h_letter_visual_79_square">
+          <geometry>
+            <box>
+              <size>8 8 0.01</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0 0 0 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+          <pose>113 -25 0 0 0 0</pose>
+        </visual>
+
+        <visual name="h_letter_visual_79">
+          <geometry>
+            <cylinder>
+              <radius>3</radius>
+              <length>0.12</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+            <specular>0 0 0 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+          <pose>113 -25 0 0 0 0</pose>
+        </visual>
+
+        <visual name="h_letter_visual_80_square">
+          <geometry>
+            <box>
+              <size>8 8 0.01</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0 0 0 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+          <pose>73 -25 0 0 0 0</pose>
+        </visual>
+
+        <visual name="h_letter_visual_80">
+          <geometry>
+            <cylinder>
+              <radius>3</radius>
+              <length>0.12</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+            <specular>0 0 0 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+          <pose>73 -25 0 0 0 0</pose>
+        </visual>
+
+        <visual name="h_letter_visual_81_square">
+          <geometry>
+            <box>
+              <size>8 8 0.01</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0 0 0 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+          <pose>73 25 0 0 0 0</pose>
+        </visual>
+
+        <visual name="h_letter_visual_81">
+          <geometry>
+            <cylinder>
+              <radius>3</radius>
+              <length>0.12</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+            <specular>0 0 0 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+          <pose>73 25 0 0 0 0</pose>
+        </visual>
+        <visual name="h_letter_visual_113">
+          <geometry>
+            <cylinder>
+              <radius>0.6</radius>
+              <length>0.19</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0 0 0 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+          <pose>103 115 0.05 0 0 0</pose>
+        </visual>
+        <visual name="h_letter_visual_146">
+          <geometry>
+            <cylinder>
+              <radius>1</radius>
+              <length>0.17</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>0 0 0 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+          <pose>103 115 0.05 0 0 0</pose>
+        </visual>
+        <visual name="h_letter_visual_65">
+          <geometry>
+            <cylinder>
+              <radius>2</radius>
+              <length>0.15</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0 0 0 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+          <pose>103 115 0.05 0 0 0</pose>
+        </visual>
+        <visual name="h_letter_visual_18">
+          <geometry>
+            <cylinder>
+              <radius>3</radius>
+              <length>0.12</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>0 0 0 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+          <pose>103 115 0 0 0 0</pose>
+        </visual>
+        <visual name="h_letter_visual_71">
+          <geometry>
+            <cylinder>
+              <radius>3.7</radius>
+              <length>0.1</length>
+            </cylinder>
+          </geometry>
+
+      <material>
+	<ambient>1 1 1 1</ambient> <!-- White color -->
+	<diffuse>1 1 1 1</diffuse> <!-- White color -->
+	<specular>0 0 0 1</specular>
+	<emissive>0 0 0 0</emissive>
+      </material>
+      <pose>103 115 0 0 0 0</pose> <!-- Adjust pose to align with bottom -->
+    </visual>
+      </link>
+    </model>
+  </world>
+</sdf>

@@ -1,0 +1,270 @@
+<sdf version='1.10'>
+  <world name='iris_runway'>
+    <physics name='1ms' type='ignore'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <plugin name='gz::sim::systems::Physics' filename='gz-sim-physics-system'/>
+    <plugin name='gz::sim::systems::Sensors' filename='gz-sim-sensors-system'>
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin name='gz::sim::systems::UserCommands' filename='gz-sim-user-commands-system'/>
+    <plugin name='gz::sim::systems::SceneBroadcaster' filename='gz-sim-scene-broadcaster-system'/>
+    <plugin name='gz::sim::systems::Imu' filename='gz-sim-imu-system'/>
+    <plugin name='gz::sim::systems::NavSat' filename='gz-sim-navsat-system'/>
+    <scene>
+      <ambient>1 1 1 1</ambient>
+      <background>0.800000012 0.800000012 0.800000012 1</background>
+      <sky/>
+      <shadows>true</shadows>
+    </scene>
+    <spherical_coordinates>
+      <latitude_deg>-35.363261999999999</latitude_deg>
+      <longitude_deg>149.16523699999999</longitude_deg>
+      <elevation>584</elevation>
+      <heading_deg>0</heading_deg>
+      <surface_model>EARTH_WGS84</surface_model>
+    </spherical_coordinates>
+    <gravity>0 0 -9.8000000000000007</gravity>
+    <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <model name="helipad">
+      <!-- Background -->
+      <link name="background_link">
+        <collision name="background_collision">
+          <geometry>
+            <cylinder>
+              <radius>5</radius> <!-- Adjust radius as needed -->
+              <length>0.1</length> <!-- Adjust thickness as needed -->
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="background_visual">
+          <geometry>
+            <cylinder>
+              <radius>5</radius> <!-- Adjust radius as needed -->
+              <length>0.1</length> <!-- Adjust thickness as needed -->
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0.25 0 1</ambient> <!-- Orange color -->
+            <diffuse>1 0.25 0 1</diffuse> <!-- Orange color -->
+            <specular>0 0 0 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+          <pose>-93 0 0 0 0 0</pose>
+        </visual>
+      </link>
+      
+      <!-- Letter "H" -->
+      <link name="h_letter_link">
+        <collision name="h_letter_collision">
+          <geometry>
+            <box>
+              <size>2 0.1 0.1</size> <!-- Adjust size as needed -->
+            </box>
+          </geometry>
+        </collision>
+        <visual name="h_letter_visual_1">
+          <geometry>
+            <box>
+              <size>1 0.1 0.1</size> <!-- Adjust size as needed -->
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient> <!-- White color -->
+            <diffuse>1 1 1 1</diffuse> <!-- White color -->
+            <specular>0 0 0 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+          <pose>-92.5 0 0.05 0 0 0</pose> <!-- Adjust pose to center the line -->
+        </visual>
+        <!-- Add more visual elements to form the letter "H" -->
+        <!-- Vertical line -->
+        <visual name="h_letter_visual_2">
+          <geometry>
+            <box>
+              <size>0.1 2 0.1</size> <!-- Adjust size as needed -->
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient> <!-- White color -->
+            <diffuse>1 1 1 1</diffuse> <!-- White color -->
+            <specular>0 0 0 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+          <pose>-93 0 0.05 0 0 0</pose> <!-- Adjust pose to align with bottom -->
+        </visual>
+        <visual name="h_letter_visual_3">
+          <geometry>
+            <box>
+              <size>0.1 2 0.1</size> <!-- Adjust size as needed -->
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient> <!-- White color -->
+            <diffuse>1 1 1 1</diffuse> <!-- White color -->
+            <specular>0 0 0 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+          <pose>-92 0 0.05 0 0 0</pose> <!-- Adjust pose to align with bottom -->
+        </visual>
+        <!-- Horizontal line -->
+        <!-- White circle -->
+      </link>
+    </model>
+  
+    <model name='axes'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='r'>
+          <cast_shadows>false</cast_shadows>
+          <pose>5 0 0.10000000000000001 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>10 0.01 0.01</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0 0 0.800000012</ambient>
+            <diffuse>1 0 0 0.800000012</diffuse>
+            <emissive>1 0 0 0.800000012</emissive>
+            <specular>0.5 0.5 0.5 0.800000012</specular>
+          </material>
+        </visual>
+        <visual name='g'>
+          <cast_shadows>false</cast_shadows>
+          <pose>0 5 0.10000000000000001 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.01 10 0.01</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 1 0 0.800000012</ambient>
+            <diffuse>0 1 0 0.800000012</diffuse>
+            <emissive>0 1 0 0.800000012</emissive>
+            <specular>0.5 0.5 0.5 0.800000012</specular>
+          </material>
+        </visual>
+        <visual name='b'>
+          <cast_shadows>false</cast_shadows>
+          <pose>0 0 5.0999999999999996 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.01 0.01 10</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0 1 0.800000012</ambient>
+            <diffuse>0 0 1 0.800000012</diffuse>
+            <emissive>0 0 1 0.800000012</emissive>
+            <specular>0.5 0.5 0.5 0.800000012</specular>
+          </material>
+        </visual>
+        <sensor name='navsat_sensor' type='navsat'>
+          <always_on>true</always_on>
+          <update_rate>1</update_rate>
+          <gps/>
+        </sensor>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0 0 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <include>
+      <uri>file:///home/pai/gz_ws/src/ardupilot_gazebo/models/runway</uri>
+      <name>runway</name>
+      <pose>-29 545 0 0 0 0.052359877559829945</pose>
+    </include>
+
+    <include>
+      <uri>file:///home/pai/gz_ws/src/ardupilot_gazebo/models/iris_with_gimbal</uri>
+      <name>iris_with_gimbal</name>
+      <pose>0.0045869386685990169 0.0085636320929463501 0.19500013080459941 1.6531519432061136e-06 0 0</pose> <!-- 0.0045869386685990169 0.0085636320929463501 0.19500013080459941 1.6531519432061136e-06 0 0 -->
+    </include>
+    <light name='sun' type='directional'>
+      <pose>0 0 10 0 0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>-0.5 0.10000000000000001 -0.90000000000000002</direction>
+      <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
+      <specular>0.800000012 0.800000012 0.800000012 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <linear>0.01</linear>
+        <constant>0.90000000000000002</constant>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+    <actor name="actor_walking_1">
+      <skin>
+          <filename>https://fuel.gazebosim.org/1.0/Mingfei/models/actor/tip/files/meshes/walk.dae</filename>
+          <scale>1.0</scale>
+      </skin>
+      <animation name="walk">
+          <filename>https://fuel.gazebosim.org/1.0/Mingfei/models/actor/tip/files/meshes/walk.dae</filename>
+          <interpolate_x>true</interpolate_x>
+      </animation>
+      <script>
+        <loop>true</loop>
+        <delay_start>0.000000</delay_start>
+        <auto_start>true</auto_start>
+        <trajectory id="0" type="walk" tension="0.6">
+          <waypoint>
+              <time>0</time>
+              <pose>-100 0 1.0 0 0 0</pose>
+          </waypoint>
+          <waypoint>
+              <time>2</time>
+              <pose>-100 0 1.0 0 0 0</pose>
+          </waypoint>
+        </trajectory>
+      </script>
+    </actor>
+    <actor name="actor_walking_2">
+      <skin>
+          <filename>https://fuel.gazebosim.org/1.0/Mingfei/models/actor/tip/files/meshes/walk.dae</filename>
+          <scale>1.0</scale>
+      </skin>
+      <animation name="walk">
+          <filename>https://fuel.gazebosim.org/1.0/Mingfei/models/actor/tip/files/meshes/walk.dae</filename>
+          <interpolate_x>true</interpolate_x>
+      </animation>
+      <script>
+        <loop>true</loop>
+        <delay_start>0.000000</delay_start>
+        <auto_start>true</auto_start>
+        <trajectory id="0" type="walk" tension="0.6">
+          <waypoint>
+              <time>0</time>
+              <pose>-100 -2 1.0 0 0 0</pose> <!-- Adjust position to be beside the first actor -->
+          </waypoint>
+          <waypoint>
+              <time>2</time>
+              <pose>-100 -2 1.0 0 0 0</pose>
+          </waypoint>
+        </trajectory>
+      </script>
+    </actor>
+  </world>
+</sdf>
